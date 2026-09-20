@@ -3,1035 +3,446 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#07000d">
+<meta name="theme-color" content="#07152f">
 
-<title>ZeroInvestmentWorkIndia</title>
+<title>CWO | Online Opportunity</title>
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-}
-
-html,body{
-    width:100%;
-    min-height:100%;
+    -webkit-tap-highlight-color:transparent;
 }
 
 body{
-    background:#030006;
-    color:#fff;
     font-family:Arial,Helvetica,sans-serif;
+    background:
+        radial-gradient(circle at 90% 5%,rgba(0,190,255,.18),transparent 30%),
+        radial-gradient(circle at 0% 95%,rgba(0,255,200,.10),transparent 28%),
+        #050a18;
+    color:#fff;
+    min-height:100vh;
 }
 
 .page{
     width:100%;
-    max-width:700px;
-    margin:auto;
+    max-width:520px;
     min-height:100vh;
-    padding:22px 18px 30px;
+    margin:auto;
+    padding:20px 18px 30px;
     position:relative;
     overflow:hidden;
-
-    background:
-    radial-gradient(circle at 5% 8%,rgba(190,40,255,.22),transparent 20%),
-    radial-gradient(circle at 100% 35%,rgba(110,20,255,.18),transparent 25%),
-    linear-gradient(180deg,#090011 0%,#030006 100%);
 }
 
-.page:before,
-.page:after{
-    content:"";
+.glow{
     position:absolute;
-    width:150px;
-    height:150px;
+    width:180px;
+    height:180px;
     border-radius:50%;
-    background:#a400ff;
-    filter:blur(85px);
-    opacity:.12;
+    filter:blur(70px);
     pointer-events:none;
 }
 
-.page:before{
-    top:180px;
-    left:-100px;
+.glow.one{
+    background:rgba(0,190,255,.15);
+    top:-90px;
+    right:-80px;
 }
 
-.page:after{
-    top:520px;
-    right:-100px;
+.glow.two{
+    background:rgba(0,255,190,.10);
+    bottom:-100px;
+    left:-80px;
 }
 
-/* TOP */
-
-.top{
+.content{
     position:relative;
     z-index:2;
-    text-align:center;
 }
 
-.top-line{
-    width:62px;
-    height:2px;
-    display:inline-block;
-    vertical-align:middle;
-    margin:0 12px 5px 0;
-    background:linear-gradient(90deg,transparent,#c84cff);
-    box-shadow:0 0 9px #c84cff;
-}
+/* ICON */
 
-.top-line.right{
-    margin:0 0 5px 12px;
-    background:linear-gradient(90deg,#c84cff,transparent);
-}
-
-.small-title{
-    display:inline-block;
-    font-size:22px;
-    font-weight:800;
-    letter-spacing:1px;
-}
-
-.main-title{
-    margin-top:6px;
-    font-size:64px;
-    line-height:.95;
-    font-weight:950;
-    letter-spacing:-3px;
-
-    background:linear-gradient(
-        180deg,
-        #fff 0%,
-        #f0b5ff 35%,
-        #c34dff 65%,
-        #7c1bc4 100%
-    );
-
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-
-    filter:drop-shadow(0 0 15px rgba(185,45,255,.5));
-}
-
-/* TASKS */
-
-.tasks{
-    position:relative;
-    z-index:2;
-    margin-top:20px;
-}
-
-.task{
-    display:grid;
-    grid-template-columns:145px 1fr 175px;
-
-    height:72px;
-    margin-bottom:10px;
-
-    border:2px solid #b94aff;
-    border-radius:14px;
-    overflow:hidden;
-
-    background:
-    linear-gradient(
-        90deg,
-        rgba(91,19,145,.65),
-        rgba(14,3,23,.98),
-        rgba(77,14,139,.60)
-    );
-
-    box-shadow:
-    0 0 14px rgba(181,58,255,.28),
-    inset 0 0 20px rgba(150,40,255,.08);
-}
-
-.number{
+.logo-box{
+    width:78px;
+    height:78px;
+    margin:18px auto 22px;
     display:flex;
     align-items:center;
     justify-content:center;
+    border-radius:22px;
+    border:1px solid rgba(0,210,255,.28);
+    background:rgba(8,22,45,.90);
+    box-shadow:
+        0 0 35px rgba(0,200,255,.13),
+        inset 0 0 20px rgba(0,200,255,.05);
+}
 
+.logo-box span{
     font-size:40px;
-    font-weight:900;
-
-    background:rgba(111,23,185,.30);
-
-    border-right:1px solid rgba(203,82,255,.7);
+    color:#00d5ff;
+    font-weight:bold;
 }
 
-.task-name{
-    display:flex;
-    align-items:center;
-    justify-content:center;
+/* BRAND */
 
-    font-size:34px;
-    font-weight:900;
-    font-style:italic;
-}
-
-.amount{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:30px;
-    font-weight:900;
-
-    background:rgba(99,18,170,.30);
-
-    border-left:1px solid rgba(203,82,255,.65);
-}
-
-
-/* SMALL TELEGRAM CONTACT BUTTON */
-
-.cta{
-    position:relative;
-    z-index:5;
-
-    width:70%;
-    height:52px;
-
-    margin:8px auto 10px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    gap:9px;
-
-    border-radius:14px;
-
-    background:#fff;
-    color:#111;
-
-    text-decoration:none;
-
-    box-shadow:
-    0 5px 16px rgba(0,0,0,.55),
-    0 0 14px rgba(175,55,255,.15);
-}
-
-.cta-left{
-    display:flex;
-    align-items:center;
-    gap:9px;
-}
-
-.telegram{
-    width:27px;
-    height:27px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:#229ed9;
-    color:#fff;
-
-    font-size:14px;
-}
-
-.cta-text{
-    font-size:14px;
-    font-weight:900;
-}
-
-.cta-sub{
-    display:none;
-}
-
-.cta-arrow{
-    font-size:23px;
-    line-height:1;
-}
-
-
-/* PHONEPE PANEL */
-
-.payment{
-    position:relative;
-    z-index:2;
-
-    margin:0 auto;
-
-    width:92%;
-
-    border:2px solid #a83cff;
-    border-radius:28px;
-
-    background:
-    linear-gradient(
-        180deg,
-        #13051d,
-        #06020a
-    );
-
-    box-shadow:
-    0 0 25px rgba(175,48,255,.25),
-    inset 0 0 25px rgba(150,40,255,.07);
-
-    overflow:hidden;
-}
-
-.phone-header{
-    height:65px;
-
-    display:flex;
-    align-items:center;
-    gap:13px;
-
-    padding:0 20px;
-
-    border-bottom:1px solid rgba(255,255,255,.07);
-}
-
-.menu{
-    color:#aaa;
-    font-size:26px;
-}
-
-.phone-logo{
-    width:42px;
-    height:42px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:#671fc4;
-
-    font-size:22px;
-    font-weight:900;
-
-    box-shadow:0 0 13px rgba(117,42,240,.45);
-}
-
-.phone-title{
-    font-size:22px;
-    font-weight:600;
-}
-
-.bell{
-    margin-left:auto;
-    color:#aaa;
-    font-size:22px;
-}
-
-.demo{
+.brand{
     text-align:center;
-
-    padding:7px 8px;
-
-    color:#aa8bb5;
-
-    font-size:9px;
-    letter-spacing:1px;
-
-    border-bottom:1px solid rgba(255,255,255,.04);
-}
-
-
-/* PAYMENT ROWS */
-
-.payment-row{
-    min-height:68px;
-
-    display:flex;
-    align-items:center;
-
-    gap:10px;
-
-    padding:6px 14px;
-
-    border-bottom:1px solid rgba(255,255,255,.055);
-}
-
-.payment-row:last-child{
-    border-bottom:0;
-}
-
-.pay-icon{
-    width:40px;
-    height:40px;
-
-    flex:none;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:#641dc1;
-
-    font-size:18px;
+    font-size:32px;
     font-weight:900;
+    letter-spacing:2px;
 }
 
-.pay-info{
-    flex:1;
-    min-width:0;
+.brand span{
+    color:#00d5ff;
 }
 
-.received{
-    color:#a9a0ad;
-    font-size:9px;
-    margin-bottom:2px;
+.tagline{
+    text-align:center;
+    color:#8e9db5;
+    font-size:12px;
+    letter-spacing:3px;
+    margin-top:8px;
 }
 
-.from{
+.status{
+    width:max-content;
+    margin:20px auto 28px;
+    padding:9px 17px;
+    border-radius:30px;
+    border:1px solid rgba(0,210,255,.22);
+    background:rgba(0,210,255,.06);
+    color:#00d5ff;
     font-size:11px;
     font-weight:700;
-    white-space:nowrap;
+    letter-spacing:1.2px;
 }
 
-.date{
-    margin-top:3px;
+/* HERO */
 
-    color:#766b7d;
-
-    font-size:8px;
-
-    white-space:nowrap;
+.hero-title{
+    text-align:center;
+    font-size:27px;
+    line-height:1.3;
+    font-weight:800;
+    margin-bottom:12px;
 }
 
-.pay-amount{
-    color:#35e500;
+.hero-title span{
+    color:#00d5ff;
+}
 
-    font-size:15px;
-    font-weight:900;
+.hero-text{
+    max-width:430px;
+    margin:auto;
+    text-align:center;
+    color:#aab6c9;
+    font-size:14px;
+    line-height:1.6;
+    margin-bottom:27px;
+}
 
-    white-space:nowrap;
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.card{
+    min-height:98px;
+    padding:15px 10px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(18,29,51,.82);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.18),
+        inset 0 0 16px rgba(0,210,255,.025);
+}
+
+.card-icon{
+    font-size:25px;
+    margin-bottom:9px;
+}
+
+.card-title{
+    font-size:13px;
+    font-weight:700;
+}
+
+/* INFO BAR */
+
+.info-bar{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:5px;
+    padding:16px 8px;
+    margin-bottom:18px;
+    border-radius:18px;
+    background:rgba(18,29,51,.85);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.info{
+    text-align:center;
+}
+
+.info strong{
+    display:block;
+    color:#00d5ff;
+    font-size:19px;
+    margin-bottom:4px;
+}
+
+.info small{
+    color:#8290a6;
+    font-size:9px;
+    letter-spacing:1px;
+}
+
+/* TELEGRAM BUTTON */
+
+.telegram-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    padding:19px 15px;
+    border-radius:32px;
+    text-decoration:none;
+    color:#fff;
+    font-size:16px;
+    font-weight:800;
+    background:linear-gradient(100deg,#008cff,#00d5ff);
+    box-shadow:
+        0 0 32px rgba(0,195,255,.25),
+        0 12px 30px rgba(0,0,0,.25);
+    transition:.2s ease;
+}
+
+.telegram-btn:active{
+    transform:scale(.98);
+}
+
+.telegram-icon{
+    font-size:22px;
 }
 
 .arrow{
-    color:#aaa;
-    font-size:21px;
+    font-size:23px;
 }
 
+/* MESSAGE PREVIEW */
 
-/* BOTTOM */
-
-.bottom{
-    position:relative;
-    z-index:2;
-
-    display:flex;
-    justify-content:space-around;
-
-    margin-top:28px;
-}
-
-.bottom-item{
+.message-box{
+    margin-top:12px;
+    padding:13px 15px;
+    border-radius:15px;
+    background:rgba(17,27,48,.75);
+    border:1px solid rgba(255,255,255,.07);
     text-align:center;
+}
 
-    color:#8e7d96;
+.message-label{
+    color:#7f8da4;
+    font-size:10px;
+    letter-spacing:1px;
+    margin-bottom:6px;
+}
 
+.message{
+    color:#dce8f5;
+    font-size:12px;
+}
+
+/* FOOTER */
+
+.disclaimer{
+    margin:18px 12px 15px;
+    text-align:center;
+    color:#6f7d92;
+    font-size:10px;
+    line-height:1.55;
+}
+
+.footer{
+    width:max-content;
+    max-width:100%;
+    margin:auto;
+    padding:9px 16px;
+    border-radius:25px;
+    background:rgba(0,210,255,.05);
+    border:1px solid rgba(0,210,255,.18);
+    color:#53ddff;
     font-size:10px;
     font-weight:700;
 }
 
-.bottom-icon{
-    width:46px;
-    height:46px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    margin:0 auto 7px;
-
-    border:2px solid #9d3cda;
-    border-radius:50%;
-
-    background:#12051a;
-
-    color:#d188ff;
-
-    font-size:20px;
-
-    box-shadow:0 0 12px rgba(175,55,255,.17);
-}
-
-.footer{
-    position:relative;
-    z-index:2;
-
-    margin-top:18px;
-
-    text-align:center;
-
-    color:#5f5267;
-
-    font-size:8px;
-
-    line-height:1.5;
-}
-
-
 /* MOBILE */
 
-@media(max-width:600px){
+@media(max-width:370px){
 
-    .page{
-        padding:17px 10px 24px;
+    .brand{
+        font-size:28px;
     }
 
-    .top-line{
-        width:40px;
+    .hero-title{
+        font-size:23px;
     }
 
-    .small-title{
-        font-size:17px;
-    }
-
-    .main-title{
-        font-size:48px;
-        letter-spacing:-2px;
-    }
-
-    .task{
-        grid-template-columns:70px 1fr 112px;
-        height:61px;
-    }
-
-    .number{
-        font-size:30px;
-    }
-
-    .task-name{
-        font-size:25px;
-    }
-
-    .amount{
-        font-size:21px;
-    }
-
-    .payment{
-        width:96%;
-        border-radius:22px;
-    }
-
-    .phone-header{
-        height:55px;
-        padding:0 13px;
-    }
-
-    .phone-title{
-        font-size:17px;
-    }
-
-    .phone-logo{
-        width:36px;
-        height:36px;
-        font-size:18px;
-    }
-
-    .payment-row{
-        min-height:58px;
-        padding:5px 10px;
-        gap:8px;
-    }
-
-    .pay-icon{
-        width:34px;
-        height:34px;
-        font-size:16px;
-    }
-
-    .received{
-        font-size:8px;
-    }
-
-    .from{
-        font-size:10px;
-    }
-
-    .date{
-        font-size:7px;
-    }
-
-    .pay-amount{
-        font-size:13px;
-    }
-
-    .arrow{
-        font-size:18px;
-    }
-
-    .cta{
-        width:55%;
-        height:40px;
-
-        margin:7px auto 9px;
-
-        border-radius:13px;
-
-        gap:8px;
-    }
-
-    .telegram{
-        width:26px;
-        height:26px;
-        font-size:13px;
-    }
-
-    .cta-text{
-        font-size:13px;
-    }
-
-    .cta-arrow{
-        font-size:22px;
-    }
-
-    .bottom{
-        margin-top:21px;
-    }
-}
-
-@media(max-width:380px){
-
-    .main-title{
-        font-size:42px;
-    }
-
-    .task{
-        grid-template-columns:57px 1fr 94px;
-        height:56px;
-    }
-
-    .number{
-        font-size:27px;
-    }
-
-    .task-name{
-        font-size:21px;
-    }
-
-    .amount{
-        font-size:17px;
-    }
-
-    .payment-row{
-        min-height:55px;
-        padding:4px 8px;
-    }
-
-    .pay-icon{
-        width:31px;
-        height:31px;
-        font-size:14px;
-    }
-
-    .from{
-        font-size:9px;
-    }
-
-    .date{
-        font-size:6.5px;
-    }
-
-    .pay-amount{
-        font-size:12px;
-    }
-
-    .cta{
-        width:58%;
-        height:38px;
-
-        margin:6px auto 8px;
-    }
-
-    .telegram{
-        width:25px;
-        height:25px;
-        font-size:12px;
-    }
-
-    .cta-text{
-        font-size:12px;
-    }
-
-    .cta-arrow{
-        font-size:21px;
-    }
-
-    .bottom-item{
-        font-size:8px;
+    .card{
+        min-height:90px;
     }
 }
 </style>
 </head>
 
+
 <body>
 
 <div class="page">
 
-    <!-- TOP -->
+    <div class="glow one"></div>
+    <div class="glow two"></div>
 
-    <div class="top">
+    <div class="content">
 
-        <span class="top-line"></span>
-
-        <div class="small-title">
-            SIMPLE TASKS
+        <!-- LOGO -->
+        <div class="logo-box">
+            <span>↗</span>
         </div>
 
-        <span class="top-line right"></span>
-
-        <div class="main-title">
-            WIN REWARDS
+        <!-- BRAND -->
+        <div class="brand">
+            C<span>W</span>O
         </div>
 
-    </div>
-
-
-    <!-- TASKS -->
-
-    <div class="tasks">
-
-        <div class="task">
-
-            <div class="number">
-                1.
-            </div>
-
-            <div class="task-name">
-                TASK
-            </div>
-
-            <div class="amount">
-                = ₹500
-            </div>
-
+        <div class="tagline">
+            ONLINE OPPORTUNITY
         </div>
 
-
-        <div class="task">
-
-            <div class="number">
-                2.
-            </div>
-
-            <div class="task-name">
-                TASK
-            </div>
-
-            <div class="amount">
-                = ₹1200
-            </div>
-
+        <!-- STATUS -->
+        <div class="status">
+            ● DETAILS AVAILABLE NOW
         </div>
 
-
-        <div class="task">
-
-            <div class="number">
-                3.
-            </div>
-
-            <div class="task-name">
-                TASK
-            </div>
-
-            <div class="amount">
-                = ₹2000
-            </div>
-
+        <!-- HERO -->
+        <div class="hero-title">
+            Explore an <span>Online Opportunity</span>
         </div>
 
-    </div>
-
-
-    <!-- SMALL CONTACT BUTTON -->
-
-    <a
-        class="cta"
-        href="https://t.me/Cwoteam?text=I%20am%20interested%20-%20Zero%20Investment%20Work"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-
-        <div class="telegram">
-            ➤
+        <div class="hero-text">
+            Get complete information about eligibility,
+            process and opportunity details before
+            proceeding.
         </div>
 
-        <div class="cta-text">
-            Contact
-        </div>
+        <!-- CARDS -->
+        <div class="cards">
 
-        <div class="cta-arrow">
-            ›
-        </div>
-
-    </a>
-
-
-    <!-- PHONEPE STYLE DEMO ACTIVITY -->
-
-    <div class="payment">
-
-        <div class="phone-header">
-
-            <div class="menu">
-                ☰
-            </div>
-
-            <div class="phone-logo">
-                पे
-            </div>
-
-            <div class="phone-title">
-                PhonePe
-            </div>
-
-            <div class="bell">
-                ♧
-            </div>
-
-        </div>
-
-
-        <div class="demo">
-            PAYMENT ACTIVITY PROOF
-
-
-        </div>
-
-
-        <!-- TRANSACTION 1 -->
-
-        <div class="payment-row">
-
-            <div class="pay-icon">
-                पे
-            </div>
-
-            <div class="pay-info">
-
-                <div class="received">
-                    Money Received
+            <div class="card">
+                <div class="card-icon">📱</div>
+                <div class="card-title">
+                    Online Process
                 </div>
-
-                <div class="from">
-                    Received from PhonePe User
-                </div>
-
-                <div class="date">
-                    23 Jul 2026, 11:55 AM
-                </div>
-
             </div>
 
-            <div class="pay-amount">
-                + ₹500
+            <div class="card">
+                <div class="card-icon">📋</div>
+                <div class="card-title">
+                    Eligibility Details
+                </div>
             </div>
 
-            <div class="arrow">
-                ›
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <div class="card-title">
+                    Simple Process
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔐</div>
+                <div class="card-title">
+                    Guidance & Support
+                </div>
             </div>
 
         </div>
 
+        <!-- INFO -->
+        <div class="info-bar">
 
-        <!-- TRANSACTION 2 -->
-
-        <div class="payment-row">
-
-            <div class="pay-icon">
-                पे
+            <div class="info">
+                <strong>18+</strong>
+                <small>AGE</small>
             </div>
 
-            <div class="pay-info">
-
-                <div class="received">
-                    Money Received
-                </div>
-
-                <div class="from">
-                    Received from PhonePe User
-                </div>
-
-                <div class="date">
-                    23 Jul 2026, 11:55 AM
-                </div>
-
+            <div class="info">
+                <strong>ONLINE</strong>
+                <small>PROCESS</small>
             </div>
 
-            <div class="pay-amount">
-                + ₹500
-            </div>
-
-            <div class="arrow">
-                ›
+            <div class="info">
+                <strong>INFO</strong>
+                <small>AVAILABLE</small>
             </div>
 
         </div>
 
+        <!-- TELEGRAM -->
+        <a
+            class="telegram-btn"
+            href="https://t.me/Cwoteam?text=I%20am%20interested%20-%20Zero%20Investment%20Work"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
 
-        <!-- TRANSACTION 3 -->
+            <span class="telegram-icon">➤</span>
 
-        <div class="payment-row">
+            <span>
+                Message CWO on Telegram
+            </span>
 
-            <div class="pay-icon">
-                पे
+            <span class="arrow">›</span>
+
+        </a>
+
+        <!-- PRE-FILLED MESSAGE -->
+        <div class="message-box">
+
+            <div class="message-label">
+                MESSAGE WILL BE PRE-FILLED
             </div>
 
-            <div class="pay-info">
-
-                <div class="received">
-                    Money Received
-                </div>
-
-                <div class="from">
-                    Received from PhonePe User
-                </div>
-
-                <div class="date">
-                    23 Jul 2026, 11:55 AM
-                </div>
-
-            </div>
-
-            <div class="pay-amount">
-                + ₹500
-            </div>
-
-            <div class="arrow">
-                ›
+            <div class="message">
+                I am interested - Zero Investment Work
             </div>
 
         </div>
 
-
-        <!-- TRANSACTION 4 -->
-
-        <div class="payment-row">
-
-            <div class="pay-icon">
-                पे
-            </div>
-
-            <div class="pay-info">
-
-                <div class="received">
-                    Money Received
-                </div>
-
-                <div class="from">
-                    Received from PhonePe User
-                </div>
-
-                <div class="date">
-                    23 Jul 2026, 11:55 AM
-                </div>
-
-            </div>
-
-            <div class="pay-amount">
-                + ₹500
-            </div>
-
-            <div class="arrow">
-                ›
-            </div>
-
+        <!-- DISCLAIMER -->
+        <div class="disclaimer">
+            Please review the opportunity details, eligibility
+            and applicable terms carefully before proceeding.
         </div>
 
-
-        <!-- TRANSACTION 5 -->
-
-        <div class="payment-row">
-
-            <div class="pay-icon">
-                पे
-            </div>
-
-            <div class="pay-info">
-
-                <div class="received">
-                    Money Received
-                </div>
-
-                <div class="from">
-                    Received from PhonePe User
-                </div>
-
-                <div class="date">
-                    23 Jul 2026, 11:55 AM
-                </div>
-
-            </div>
-
-            <div class="pay-amount">
-                + ₹500
-            </div>
-
-            <div class="arrow">
-                ›
-            </div>
-
+        <!-- FOOTER -->
+        <div class="footer">
+            CWO | ONLINE OPPORTUNITY
         </div>
-
-    </div>
-
-
-    <!-- BOTTOM -->
-
-    <div class="bottom">
-
-        <div class="bottom-item">
-
-            <div class="bottom-icon">
-                ✓
-            </div>
-
-            SIMPLE<br>
-            TASKS
-
-        </div>
-
-
-        <div class="bottom-item">
-
-            <div class="bottom-icon">
-                🔒
-            </div>
-
-            SECURE<br>
-            PROCESS
-
-        </div>
-
-
-        <div class="bottom-item">
-
-            <div class="bottom-icon">
-                ★
-            </div>
-
-            TRUSTED<br>
-            SUPPORT
-
-        </div>
-
-    </div>
-
-
-    <div class="footer">
-
-        ZeroInvestmentWorkIndia<br>
-        Work opportunity information. Rewards may vary by task.
 
     </div>
 
 </div>
 
 </body>
-    </html>
+</html>
